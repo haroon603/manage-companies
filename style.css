@@ -44,6 +44,10 @@
     color: #C8C8C8;
 }
 
+.tbl-csv tr td {
+    font-size: 12px;
+}
+
 .tbl-csv thead{
     background-color: #42A4DF;
     color: #FFFFFF;

@@ -22,7 +22,7 @@
         <div class="w-100" style="background: #F2F2F2; padding-left: 3.495%; padding-right: 3.495%; padding-top: 27px;">
             <nav class="navbar p-0 navbar-light">
                 <div style="position: relative; width: 50%;">
-                    <input id="myInput" type="text" class="sbox form-input general-form" style="padding-left: 1.75rem; max-width: 50%;" placeholder="Search by id, title, type ..." autocomplete="off">
+                    <input id="myInput" type="text" class="sbox form-input general-form" style="padding-left: 1.75rem; max-width: 50%; min-width: 190px;" placeholder="Search by id, company, site ..." autocomplete="off">
                     <span class="fa fa-search" style="position: absolute; left: 8px; margin-top: 7px; color: #C8C8C8;"></span>
                 </div>
 
@@ -30,7 +30,7 @@
                     <div class="mr-2" style="border: 1px solid #D8D8D8; border-radius: 2px; background-color: #FFFFFF; width: 30px; text-align: center;">
                         <img src="image/bin.png" class="img-fluid">
                     </div>
-                    <div style=" width: 40%;">
+                    <div style=" width: 40%; min-width: 120px;">
                         <select class="form-select form-select-sm slct3 mr-2 general-form" aria-label=".form-select-sm example">
                             <option selected>Select Company</option>
                             <option value="1">One</option>
@@ -44,18 +44,18 @@
                 <table class="w-100 tbl-csv mt-3" style="min-width: 745px;">
                     <thead>
                         <tr>
-                            <td class="pl-4" class="py-1"><input type="checkbox" class="checkbox checkbox-primary"></td>
+                            <td class="pl-4" class="py-1"><input type="checkbox" id="select-all" class="checkbox checkbox-primary"></td>
                             <td class="py-1">ID</td>
                             <td class="py-1">Date<img class="pl-1" src="image/sort.png"></td>
                             <td class="py-1">Company</td>
-                            <td class="py-1">Logo</td>
+                            <td class="py-1" style="padding-left: 10px;">Logo</td>
                             <td class="py-1">Site</td>
                             <td class="py-1"><img src="image/Vector.png"></td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="pl-4"><input type="checkbox" checked></td>
+                            <td class="pl-4"><input class="check-all" type="checkbox"></td>
                             <td>#11042021</td>
                             <td>March 30,2021</td>
                             <td>Newelec</td>
@@ -78,7 +78,7 @@
 
     <!--Modal of add company-->
     <div class="modal" id="mymodal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog" role="document" style="width: 504px;">
             <div class="modal-content">
                 <!--Modal Head-->
                 <div class="modal-header py-2" style="background-color: #F2F2F2;">
@@ -112,7 +112,7 @@
 
      <!--Modal of add site-->
      <div class="modal" id="mymodal1" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog" role="document" style="width: 349px;">
             <div class="modal-content">
                 <!--Modal Head-->
                 <div class="modal-header py-2" style="background-color: #F2F2F2;">
@@ -123,9 +123,9 @@
                     </button>
                 </div>
                 <!--Modal Body-->
-                <div class="modal-body">
+                <div class="modal-body px-4">
                     <div class="row">
-                        <div class="col-md-4 pr-0">
+                        <div class="col-md-6">
                             <label class="fc-silver" style="font-size: 11px;">COMPANY</label>
                             <select style="font-size: 11px;" class="form-control">
                                 <option>Newelec</option>
@@ -135,9 +135,9 @@
                                 <option>5</option>
                               </select>
                         </div>
-                        <div class="col-md-8">
-                            <label class="fc-silver" style="font-size: 11px;">DESCRIPTION</label>
-                            <input type="text" style="font-size: 11px;" class="form-control" aria-describedby="emailHelp" value="A brief description">
+                        <div class="col-md-6">
+                            <label class="fc-silver" style="font-size: 11px;">Site</label>
+                            <input type="text" style="font-size: 11px;" class="form-control" aria-describedby="emailHelp" value="Site Name">
                         </div>
                     </div>
                 </div>
@@ -152,5 +152,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#select-all').click(function(){
+                if($(this).prop("checked") == true){
+                    $('.check-all').attr('checked', true);
+                }
+                else if($(this).prop("checked") == false){
+                    $('.check-all').attr('checked', false);
+                }
+            });
+        });
+    </script>
+
   </body>
 </html>
